@@ -19,7 +19,8 @@ const InputSearchBase = styled(InputBase)`
 
 const SearchIconWrapper = styled(Box)`
     color: blue;
-    padding: 5px
+    padding: 5px;
+    display: flex;
 `
 
 const Search = () => {
