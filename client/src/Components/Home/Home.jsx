@@ -2,9 +2,10 @@ import { useEffect } from "react";
 // import { Fragment } from "react";
 import Navbar from "./Navbar";
 import Banner from "./Banner";
+import Slide from "./Slide";
 import { styled, Box } from "@mui/material"
 import { getProducts } from "../../Redux/actions/productActions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Component = styled(Box)`
     padding: 10px;
@@ -12,6 +13,8 @@ const Component = styled(Box)`
 `
 
 const Home = () => {
+
+    const { products } = useSelector(state => state.getProducts)  //this getProducts is of redux store name
 
     const dispatch = useDispatch();
 
@@ -26,6 +29,7 @@ const Home = () => {
             <Navbar />
             <Component>
                 <Banner />
+                <Slide products={products} />
             </Component>
         </>
     )
