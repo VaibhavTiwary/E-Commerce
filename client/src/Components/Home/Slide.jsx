@@ -1,7 +1,9 @@
 import Carousel from "react-multi-carousel";
 import 'react-multi-carousel/lib/styles.css';
 
-import { Box } from '@mui/material';
+import Countdown from 'react-countdown';
+
+import { Box, Typography, Button, Divider, styled } from '@mui/material';
 
 
 const responsive = {
@@ -19,9 +21,67 @@ const responsive = {
     }
 };
 
+const Component = styled(Box)`
+    margin-top: 10px;
+    background: #FFFFFF;
+`;
+
+const Deal = styled(Box)`
+    padding: 15px 20px;
+    display: flex
+`;
+
+const Timer = styled(Box)`
+    display: flex;
+    margin-left: 10px;
+    align-items: center;
+    color: #7f7f7f
+`;
+
+const DealText = styled(Typography)`
+    font-size: 22px;
+    font-weight: 600;
+    margin-right: 25px;
+    line-height: 32px
+`;
+
+const ViewAllButton = styled(Button)`
+    margin-left: auto;
+    backhround-color: #2874f0;
+    border-radius: 2px;
+    font-size: 13px;
+    font-weight: 600
+`;
+
+const Image = styled('img')({
+    width: 'auto',
+    height: 150
+});
+
+const Text = styled(Typography)`
+    font-size: 14px;
+    margin-top: 5px
+`
+
+
 const Slide = ({ products }) => {
+
+    const timerURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/timer_a73398.svg';
+
+    const renderer = ({ hours, minutes, seconds }) => {
+        return <Box variant="span">{hours} : {minutes} : {seconds} Left</Box>;
+    }
     return (
-        <Box>
+        <Component>
+            <Deal>
+                <DealText>Deals of the Day</DealText>
+                <Timer>
+                    <img src={timerURL} alt="timer" style={{ width: 24 }}></img>
+                    <Countdown date={Date.now() + 5.04e+7} renderer={renderer} />
+                </Timer>
+                <ViewAllButton variant="contained" color="primary">View All</ViewAllButton>
+            </Deal>
+            < Divider />
             <Carousel
                 responsive={responsive}
                 swipeable={false}
@@ -37,12 +97,17 @@ const Slide = ({ products }) => {
             >
                 {
                     products.map(product => (
-                        <img src={product.url} alt="product" />
+                        <Box textAlign="center" style={{ padding: '25px 15px' }}>
+                            <Image src={product.url} alt="product" />
+                            <Text style={{ fontWeight: 600, color: '#212121' }}>{product.title.shortTitle}</Text>
+                            <Text style={{ color: 'green' }}>{product.discount}</Text>
+                            <Text style={{ color: '#212121', opacity: '.6' }}>{product.tagline}</Text>
+                        </Box>
                     ))
                 }
 
             </Carousel>
-        </Box>
+        </Component>
     )
 }
 
