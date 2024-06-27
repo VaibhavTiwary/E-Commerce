@@ -12,3 +12,12 @@ export const getProducts = () => async (dispatch) => {   //getProducts will call
     }
 }
 
+export const getProductDetails = () => async (dispatch) => {
+    try {
+
+    } catch (error) {
+
+    }
+
+}
+
