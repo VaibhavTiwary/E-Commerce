@@ -1,11 +1,11 @@
 
-
+import { useState } from 'react';
 import { InputBase, Box, styled } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
 const SearchContainer = styled(Box)`
     background: #fff;
-    width: 38%;
+    width: 35%;
     border-radius: 2px;
     margin-left: 10px;
     display: flex;
@@ -24,11 +24,16 @@ const SearchIconWrapper = styled(Box)`
 `
 
 const Search = () => {
+    const [text, setText] = useState('');
+
+    const getText = (text) => {
+        setText(text);
+    }
     return (
         <SearchContainer>
             <InputSearchBase
                 placeholder='Search for products, brands and more'
-
+                onChange={(e) => getText(e.target.value)}
             />
             <SearchIconWrapper>
                 <SearchIcon />

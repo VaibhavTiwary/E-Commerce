@@ -7,7 +7,7 @@ const LeftContainer = styled(Box)(({ theme }) => ({
     [theme.breakpoints.down('lg')]: {
         padding: '20px 40px'
     }
-}))
+}));
 
 const Image = styled('img')({
     width: '95%',
@@ -16,7 +16,7 @@ const Image = styled('img')({
 
 const StyledButton = styled(Button)(({ theme }) => ({
     width: '48%',
-    height: '50px',
+    height: 50,
     borderRadius: 2,
     [theme.breakpoints.down('lg')]: {
         width: '46%'
@@ -24,8 +24,8 @@ const StyledButton = styled(Button)(({ theme }) => ({
     [theme.breakpoints.down('sm')]: {
         width: '48%'
     }
-
 }));
+
 const ActionItem = ({ product }) => {
     return (
         <LeftContainer>

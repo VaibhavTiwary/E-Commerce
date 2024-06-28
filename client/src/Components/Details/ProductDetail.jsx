@@ -70,11 +70,11 @@ const ProductDetail = ({ product }) => {
                             <Typography>View more sellers starting from ₹329</Typography>
                         </TableCell>
                     </ColumnText>
-                    <TableRow>
+                    <ColumnText>
                         <TableCell colSpan={2}>
-                            <img src={adURL} style={{ width: 390 }} />
+                            <img src={adURL} style={{ width: 390 }} alt="points" />
                         </TableCell>
-                    </TableRow>
+                    </ColumnText>
                     <ColumnText>
                         <TableCell style={{ color: '#878787' }}>Description</TableCell>
                         <TableCell>{product.description}.</TableCell>
