@@ -3,6 +3,7 @@
 import Header from "./Components/Header/Header";
 import Home from "./Components/Home/Home";
 import DetailView from "./Components/Details/DetailView";
+import Cart from './Components/Cart/Cart';
 
 import DataProvider from "./context/DataProvider";
 
@@ -18,6 +19,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/product/:id' element={<DetailView />} />
+            <Route path='/cart' element={<Cart />} />
           </Routes>
         </Box>
       </BrowserRouter>

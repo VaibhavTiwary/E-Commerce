@@ -17,6 +17,6 @@ export const getProductById = async (request, response) => {
 
         response.status(200).json(product);
     } catch (error) {
-        esponse.status(500).json({ message: error.message });
+        response.status(500).json({ message: error.message });
     }
 }
