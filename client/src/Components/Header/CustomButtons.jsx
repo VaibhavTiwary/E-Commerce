@@ -2,10 +2,11 @@ import { useState, useContext } from 'react';
 
 import { Box, Button, Typography, styled } from '@mui/material';
 import { ShoppingCart } from '@mui/icons-material';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { DataContext } from "../../context/DataProvider";
 import LoginDialog from '../login/LoginDialog';
 import Profile from './Profile';
+
 
 const Wrapper = styled(Box)(({ theme }) => ({
     display: 'flex',
@@ -22,8 +23,10 @@ const Wrapper = styled(Box)(({ theme }) => ({
 
 }));
 
-const Container = styled(Box)(({ theme }) => ({
+const Container = styled(Link)(({ theme }) => ({
     display: 'flex',
+    textDecoration: 'none',
+    color: 'inherit',
     [theme.breakpoints.down('md')]: {
         display: 'block'
     }
@@ -58,7 +61,7 @@ const CustomButtons = () => {
             <Typography style={{ marginTop: 3, width: 135 }}>Become a Seller</Typography>
             <Typography style={{ marginTop: 3 }}>More</Typography>
 
-            <Container>
+            <Container to="/cart">
                 <ShoppingCart />
                 <Typography>Cart</Typography>
             </Container>
